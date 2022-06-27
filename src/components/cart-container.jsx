@@ -7,41 +7,37 @@ const CartContainer = () => {
     const dispatch = useDispatch();
     if (amount < 1) {
         return (
-            <section className="cart">
-                {/* cart header */}
+            <section className="text-center my-8 w-[85%] md:w-4/6 mx-auto">
                 <header>
-                    <h2>your bag</h2>
+                    <h2 className="font-semibold md:text-2xl duration-500 text-xl my-4">Your Bag</h2>
                     <h4 className="empty-cart">is currently empty</h4>
                 </header>
             </section>
         );
     }
     return (
-        <section className="cart">
-            {/* cart header */}
+        <section className="text-center my-8 w-[85%] md:w-4/6 mx-auto">
             <header>
-                <h2>your bag</h2>
+                <h2 className="font-semibold md:text-2xl duration-500 text-xl my-4">Your Bag</h2>
             </header>
-            {/* cart items */}
             <div>
                 {cartItems.map((item) => {
                     return <CartItem key={item.id} {...item} />;
                 })}
             </div>
-            {/* cart footer */}
             <footer>
                 <hr />
-                <div className="cart-total">
+                <div className="flex justify-end mx-5">
                     <h4>
                         total <span>${total.toFixed(2)}</span>
                     </h4>
                 </div>
-                <button className="btn clear-btn"
+                <button className="border-2 border-black py-3 px-5 md:hover:bg-black md:hover:text-white"
                     onClick={() => {
                         dispatch(openModal());
 
                     }}
-                >clear cart</button>
+                >Clear Cart</button>
             </footer>
         </section>
     );

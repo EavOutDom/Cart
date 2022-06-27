@@ -1,18 +1,19 @@
 import React from "react";
-import { ChevronDown, ChevronUp } from "../icons";
+import {BsArrowUpSquareFill, BsArrowDownSquareFill} from 'react-icons/bs'
 import { useDispatch } from "react-redux";
 import { decrease, increase, removeItem } from "../features/cart/cartSlide";
 const CartItem = ({ id, img, title, price, amount }) => {
     const dispatch = useDispatch();
     return (
-        <article className="cart-item">
-            <img src={img} alt={title} />
+        <div className="bg-[bisque] rounded-lg my-4 p-4 shadow-lg hover:md:shadow-2xl duration-500 mx-auto w-[95%] hover:md:w-full">
+        <div className="flex items-center justify-between">
+            <img src={img} alt={title} className={'w-20 h-20 object-cover'}/>
             <div>
-                <h4>{title}</h4>
+                <h4 className={'font-semibold'}>{title}</h4>
                 <h4 className="item-price">${price}</h4>
                 {/* remove button */}
                 <button
-                    className="remove-btn"
+                    className=""
                     onClick={() => {
                         dispatch(removeItem(id));
                     }}
@@ -23,18 +24,18 @@ const CartItem = ({ id, img, title, price, amount }) => {
             <div>
                 {/* increase amount */}
                 <button
-                    className="amount-btn"
+                    className="mt-1"
                     onClick={() => {
                         dispatch(increase({ id }));
                     }}
                 >
-                    <ChevronUp />
+                    <BsArrowUpSquareFill size={'20'}/>
                 </button>
                 {/* amount */}
-                <p className="amount">{amount}</p>
+                <p className="text-xl mb-1">{amount}</p>
                 {/* decrease amount */}
                 <button
-                    className="amount-btn"
+                    className={''}
                     onClick={() => {
                         if (amount === 1) {
                             dispatch(removeItem(id));
@@ -43,10 +44,11 @@ const CartItem = ({ id, img, title, price, amount }) => {
                         dispatch(decrease({ id }));
                     }}
                 >
-                    <ChevronDown />
+                    <BsArrowDownSquareFill size={'20'}/>
                 </button>
             </div>
-        </article>
+        </div>
+        </div>
     );
 };
 

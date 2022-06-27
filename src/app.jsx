@@ -17,7 +17,7 @@ const App = () => {
     }, [dispatch]);
     if (isLoading) {
         return (
-            <div className="loading">
+            <div className="md:text-3xl text-xl font-semibold fixed top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]">
                 <h1>Loading...</h1>
             </div>
         );
