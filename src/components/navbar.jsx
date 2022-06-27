@@ -6,7 +6,7 @@ const Navbar = () => {
     const { amount } = useSelector((state) => state.cart);
     return (
         <nav className={"bg-[bisque] px-8 py-6 shadow-lg"}>
-            <div className="flex w-full justify-between items-center">
+            <div className="flex md:w-[70%] w-full justify-between items-center mx-auto">
                 <h3 className="capitalize font-bold md:text-2xl text-xl duration-500">
                     redux toolkit.
                 </h3>
